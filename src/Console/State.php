@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Tinx\Console;
+namespace iml885203\Laravel5Tinx\Console;
 
 class State
 {

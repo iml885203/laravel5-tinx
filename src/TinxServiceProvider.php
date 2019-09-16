@@ -1,8 +1,8 @@
 <?php
 
-namespace Ajthinking\Tinx;
+namespace iml885203\Laravel5Tinx;
 
-use Ajthinking\Tinx\Console\TinxCommand;
+use iml885203\Laravel5Tinx\Console\TinxCommand;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 

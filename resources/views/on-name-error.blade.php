@@ -11,7 +11,7 @@ use Illuminate\Support\Arr;
         Arr::set($GLOBALS, 'tinx.shortcuts.{!! $name !!}', ${!! $name !!});
         Arr::set($GLOBALS, 'tinx.shortcuts.{!! $name !!}_', ${!! $name !!}_);
         if (!function_exists('{!! $name !!}')) {
-            function {!! $name !!}(...$args) {
+            function {!! $name !!}($args) {
                 return '{!! $class !!}';
             }
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Tinx\Naming;
+namespace iml885203\Laravel5Tinx\Naming;
 
 class ShortestUniqueStrategy implements Strategy
 {

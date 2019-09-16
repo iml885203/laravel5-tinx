@@ -1,10 +1,10 @@
 <?php
 
-namespace Ajthinking\Tinx\Tests;
+namespace iml885203\Laravel5Tinx\Tests;
 
-use Ajthinking\Tinx\Models\Model;
-use Ajthinking\Tinx\Naming\ForbiddenNames;
-use Ajthinking\Tinx\Naming\StrategyFactory;
+use iml885203\Laravel5Tinx\Models\Model;
+use iml885203\Laravel5Tinx\Naming\ForbiddenNames;
+use iml885203\Laravel5Tinx\Naming\StrategyFactory;
 use PHPUnit\Framework\TestCase;
 
 class NamingStrategyTest extends TestCase
@@ -39,7 +39,7 @@ class NamingStrategyTest extends TestCase
             new Model("App\MaximumInstanceNode")
 
             // Add more special cases here?
-            
+
             // Add ~1000 nouns from faker?
 
         ]);

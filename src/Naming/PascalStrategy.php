@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Tinx\Naming;
+namespace iml885203\Laravel5Tinx\Naming;
 
 use Illuminate\Support\Arr;
 
@@ -49,7 +49,7 @@ class PascalStrategy implements Strategy
     }
 
     /**
-     * @param \Ajthinking\Tinx\Model $model
+     * @param \iml885203\Laravel5Tinx\Model $model
      * @return void
      * */
     private function setModelName($model)
@@ -109,7 +109,7 @@ class PascalStrategy implements Strategy
     }
 
     /**
-     * @param \Ajthinking\Tinx\Model $model
+     * @param \iml885203\Laravel5Tinx\Model $model
      * @return string
      * */
     private function getPascalName($model)
@@ -119,8 +119,8 @@ class PascalStrategy implements Strategy
 
     /**
      * @param string $conflictingName
-     * @param \Ajthinking\Tinx\Model $causalModel
-     * @return \Ajthinking\Tinx\Model
+     * @param \iml885203\Laravel5Tinx\Model $causalModel
+     * @return \iml885203\Laravel5Tinx\Model
      * */
     private function getConflictingModel($conflictingName, $causalModel)
     {
@@ -163,7 +163,7 @@ class PascalStrategy implements Strategy
 
     /**
      * @param string $name
-     * @param \Ajthinking\Tinx\Model $model
+     * @param \iml885203\Laravel5Tinx\Model $model
      * @return void
      * */
     private function setName($name, $model)
@@ -200,8 +200,8 @@ class PascalStrategy implements Strategy
     }
 
     /**
-     * @param \Ajthinking\Tinx\Model $conflictingModel
-     * @param \Ajthinking\Tinx\Model $causualModel
+     * @param \iml885203\Laravel5Tinx\Model $conflictingModel
+     * @param \iml885203\Laravel5Tinx\Model $causualModel
      * @return string
      * */
     private function getUniquePascalName($conflictingModel, $causalModel)
@@ -246,8 +246,8 @@ class PascalStrategy implements Strategy
 
     /**
      * @param string $conflictingName
-     * @param \Ajthinking\Tinx\Model $conflictingModel
-     * @param \Ajthinking\Tinx\Model $causualModel
+     * @param \iml885203\Laravel5Tinx\Model $conflictingModel
+     * @param \iml885203\Laravel5Tinx\Model $causualModel
      * @return string
      * */
     private function getUniquePascalNameWithNamespace($conflictingName, $conflictingModel, $causalModel)
@@ -294,7 +294,7 @@ class PascalStrategy implements Strategy
     }
 
     /**
-     * @param \Ajthinking\Tinx\Model $model
+     * @param \iml885203\Laravel5Tinx\Model $model
      * @return string
      * */
     private function getSnakeName($model)
@@ -445,10 +445,10 @@ class PascalStrategy implements Strategy
      * @param array $args
      * @return void
      * */
-    private function dump(...$args)
+    private function dump($args)
     {
         if ($this->debugging) {
-            dump(...$args);
+            dump($args);
         }
     }
 }

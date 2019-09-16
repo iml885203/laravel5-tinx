@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Tinx\Models;
+namespace iml885203\Laravel5Tinx\Models;
 
 use Exception;
 use Throwable;

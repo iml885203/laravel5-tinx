@@ -1,9 +1,9 @@
 <?php
 
-namespace Ajthinking\Tinx\Naming;
+namespace iml885203\Laravel5Tinx\Naming;
 
-use Ajthinking\Tinx\Models\Models;
-use Ajthinking\Tinx\Naming\Strategy;
+use iml885203\Laravel5Tinx\Models\Models;
+use iml885203\Laravel5Tinx\Naming\Strategy;
 use Exception;
 use Illuminate\Container\Container;
 use Throwable;
@@ -11,7 +11,7 @@ use Throwable;
 class StrategyFactory
 {
     /**
-     * @return \Ajthinking\Tinx\Naming\Strategy
+     * @return \iml885203\Laravel5Tinx\Naming\Strategy
      * */
     public static function makeDefault()
     {
@@ -23,10 +23,10 @@ class StrategyFactory
     }
 
     /**
-     * Accepts a string identifier (e.g. 'pascal') or any class implementing 'Ajthinking\Tinx\Naming\Strategy'.
+     * Accepts a string identifier (e.g. 'pascal') or any class implementing 'iml885203\Laravel5Tinx\Naming\Strategy'.
      *
      * @param string $strategy
-     * @return \Ajthinking\Tinx\Naming\Strategy
+     * @return \iml885203\Laravel5Tinx\Naming\Strategy
      * */
     public static function make($strategy, $models)
     {
@@ -39,7 +39,7 @@ class StrategyFactory
 
     /**
      * @param string $strategy
-     * @return \Ajthinking\Tinx\Naming\Strategy
+     * @return \iml885203\Laravel5Tinx\Naming\Strategy
      * @throws Exception
      * */
     private static function resolveViaContainer($strategy, $models)
@@ -57,12 +57,12 @@ class StrategyFactory
             return $instance;
         }
 
-        throw new Exception('Strategy must implement [Ajthinking\Tinx\Naming\Strategy].');
+        throw new Exception('Strategy must implement [iml885203\Laravel5Tinx\Naming\Strategy].');
     }
 
     /**
      * @param string $strategy
-     * @return \Ajthinking\Tinx\Naming\Strategy
+     * @return \iml885203\Laravel5Tinx\Naming\Strategy
      * */
     private static function resolveViaIdentifier($strategy, $models)
     {

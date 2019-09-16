@@ -1,13 +1,13 @@
 <?php
 
-namespace Ajthinking\Tinx\Console;
+namespace iml885203\Laravel5Tinx\Console;
 
 use Illuminate\Support\Arr;
 
 class NamesTable
 {
     /**
-     * @param \Ajthinking\Tinx\Console\TinxCommand $command
+     * @param \iml885203\Laravel5Tinx\Console\TinxCommand $command
      * @return void
      * */
     public static function make(TinxCommand $command)
@@ -16,7 +16,7 @@ class NamesTable
     }
 
     /**
-     * @param \Ajthinking\Tinx\Console\TinxCommand $command
+     * @param \iml885203\Laravel5Tinx\Console\TinxCommand $command
      * @return void
      * */
     private function __construct(TinxCommand $command)
@@ -73,7 +73,7 @@ class NamesTable
      * @param array $filters
      * @return void
      * */
-    public function render(...$filters)
+    public function render($filters = [])
     {
         if (0 === count($this->names)) {
             return $this->command->warn("No models found (see: config/tinx.php > model_paths).");

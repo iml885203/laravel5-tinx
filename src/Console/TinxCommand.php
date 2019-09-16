@@ -1,11 +1,11 @@
 <?php
 
-namespace Ajthinking\Tinx\Console;
+namespace iml885203\Laravel5Tinx\Console;
 
-use Ajthinking\Tinx\Console\NamesTable;
-use Ajthinking\Tinx\Console\State;
-use Ajthinking\Tinx\Includes\IncludeManager;
-use Ajthinking\Tinx\Naming\StrategyFactory;
+use iml885203\Laravel5Tinx\Console\NamesTable;
+use iml885203\Laravel5Tinx\Console\State;
+use iml885203\Laravel5Tinx\Includes\IncludeManager;
+use iml885203\Laravel5Tinx\Naming\StrategyFactory;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -82,11 +82,11 @@ class TinxCommand extends Command
      * */
     private function listenForNamesTable()
     {
-        app('events')->listen('tinx.names', function (...$args) {
-            NamesTable::make($this)->render(...$args);
+        app('events')->listen('tinx.names', function ($args = []) {
+            NamesTable::make($this)->render($args);
         });
 
-        app('events')->listen('tinx.names.conditional', function (...$args) {
+        app('events')->listen('tinx.names.conditional', function () {
             NamesTable::make($this)->conditionallyRender();
         });
     }

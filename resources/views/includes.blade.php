@@ -1,6 +1,6 @@
 <php
 
-use Ajthinking\Tinx\Console\State;
+use iml885203\Laravel5Tinx\Console\State;
 use Illuminate\Support\Arr;
 
 /**
@@ -44,8 +44,8 @@ function restart() {
  * @param array $args If passed, filters classes to these terms (e.g. "names('banana', 'carrot')").
  * @return void
  * */
-function names(...$args) {
-    event('tinx.names', $args);
+function names($args = []) {
+    event('tinx.names', compact('args'));
 }
 
 /**
@@ -63,22 +63,19 @@ function tinx_forget_name($class) {
  * @param mixed $args
  * @return mixed
  * */
-function tinx_query($class, ...$args)
+function tinx_query($class, $arg)
 {
-    $totalArgs = count($args);
-
     /**
-     * Zero arguments (i.e. u() returns "App\User").
+     * Zero argument (i.e. u() returns "App\User").
      * */
-    if ($totalArgs === 0) {
-        return $class; /* Return a clean starting point for the query builder. */
+    if (is_null($arg)) {
+        return app($class); /* Return a clean starting point for the query builder. */
     }
 
     /**
      * One argument (i.e. u(2) returns App\User::find(2)).
      * */
-    if ($totalArgs === 1) {
-        $arg = $args[0];
+    if (!is_null($arg)) {
 
         /**
          * Int? Use "find()".
@@ -108,15 +105,6 @@ function tinx_query($class, ...$args)
         throw new Exception("Don't know what to do with this datatype. Please make PR.");
     }
 
-    /**
-     * The query builder's "where" method accepts up to 4 arguments, but let's lock it to 3.
-     * Two arguments (i.e. u("name", "Anders") returns App\User::where("name", "Anders")).
-     * Three arguments (i.e. u("id", ">", 1) returns App\User::where("id", ">", 1)).
-     * */
-    if ($totalArgs >= 2 && $totalArgs <= 3) {
-        return $class::where(...$args)->get();
-    }
-    
     throw new Exception("Too many arguments!");
 }
 
@@ -126,7 +114,7 @@ function tinx_query($class, ...$args)
  * For "last" variable, returns "::latest()->first()" if class DB table exists, otherwise "new" (if 'tableless_models' set to true).
  * */
 Arr::set($GLOBALS, 'tinx.names', {!! var_export($names); !!});
-$latestColumn = '{{ Arr::get($config, 'latest_column', 'created_at') }}';
+$latestColumn = '{{ Illuminate\Support\Arr::get($config, 'latest_column', 'created_at') }}';
 @foreach ($names as $class => $name)
     try {
         ${!! $name !!} = {!! $class !!}::first() ?: app('{!! $class !!}');
@@ -134,8 +122,8 @@ $latestColumn = '{{ Arr::get($config, 'latest_column', 'created_at') }}';
         Arr::set($GLOBALS, 'tinx.shortcuts.{!! $name !!}', ${!! $name !!});
         Arr::set($GLOBALS, 'tinx.shortcuts.{!! $name !!}_', ${!! $name !!}_);
         if (!function_exists('{!! $name !!}')) {
-            function {!! $name !!}(...$args) {
-                return tinx_query('{!! $class !!}', ...$args);
+            function {!! $name !!}($arg = null) {
+                return tinx_query('{!! $class !!}', $arg);
             }
         }
     } catch (Throwable $e) {

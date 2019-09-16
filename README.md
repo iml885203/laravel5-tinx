@@ -1,20 +1,20 @@
-# Laravel Tinx
-[![Latest Stable Version](https://img.shields.io/packagist/v/ajthinking/tinx.svg)](https://packagist.org/packages/ajthinking/tinx)
-[![Total Downloads](https://img.shields.io/packagist/dt/ajthinking/tinx.svg)](https://packagist.org/packages/ajthinking/tinx)
-[![License](https://img.shields.io/packagist/l/ajthinking/tinx.svg)](https://packagist.org/packages/ajthinking/tinx)
+# Laravel5 Tinx
+[![Latest Stable Version](https://img.shields.io/packagist/v/iml885203/laravel5-tinx.svg)](https://packagist.org/packages/iml885203/laravel5-tinx)
+[![Total Downloads](https://img.shields.io/packagist/dt/iml885203/laravel5-tinx.svg)](https://packagist.org/packages/iml885203/laravel5-tinx)
+[![License](https://img.shields.io/packagist/l/iml885203/laravel5-tinx.svg)](https://packagist.org/packages/iml885203/laravel5-tinx)
+
+This project is for Laravel 5.1. forked from [Laravel Tinx](https://github.com/furey/tinx).
 
 [Laravel Tinker](https://github.com/laravel/tinker), <b>re()</b>loaded.
 
 Reload your session from inside Tinker, plus magic shortcuts for first(), find(), where(), and more!
-
-<img src="https://i.imgur.com/U9NnDix.gif" title="source: imgur.com" />
 
 ## Installation
 
 To install Tinx, simply require it via Composer:
 
 ```bash
-composer require --dev ajthinking/tinx
+composer require --dev iml885203/laravel5-tinx
 ```
 
 If using Laravel <=5.4, register Tinx's service provider in `config/app.php` (Laravel >=5.5 [does this automatically](https://laravel.com/docs/5.5/packages#package-discovery)):
@@ -28,12 +28,14 @@ return [
     // etc…
     'providers' => [
         // etc…
-        Ajthinking\Tinx\TinxServiceProvider::class,
+        iml885203\Laravel5Tinx\TinxServiceProvider::class,
         // etc…
     ],
     // etc…
 ];
 ```
+
+
 
 ## Usage
 
@@ -74,10 +76,8 @@ Tinx sniffs your models and prepares the following shortcuts:
 | `$c`                        | `App\Models\Car::first()`                           |
 | `u(3)`                      | `App\User::find(3)`                                 |
 | `u("gmail")`                | `Where "%gmail%" is found in any column.`           |
-| `u("mail", "jon@snow.com")` | `App\User::where("mail", "jon@snow.com")->get()`    |
-| `u("id", ">", 0)`           | `App\User::where("id", ">", 0)->get()`              |
-| `u()`                       | `"App\User"`                                        |
-| `u()::whereRaw(...)`        | `App\User::whereRaw(...) // Note: >= PHP 7.0 only`  |
+| `u()`                       | `app("App\User")`                                   |
+| `u()->whereRaw(...)`        | `app("App\User")->whereRaw(...)`                    |
 
 ### Naming strategy
 
@@ -105,7 +105,7 @@ Your shortcuts will initially display only if your session satisfies the `names_
 To filter the shortcuts returned by `names()`, simply pass your filter terms like so:
 
 ```
-names('car', 'user')
+names(['car', 'user'])
 ```
 
 ## Configuration
@@ -115,7 +115,7 @@ Tinx contains a number of helpful configuration options.
 To personalise your Tinx installation, publish its config file by running:
 
 ```
-php artisan vendor:publish --provider=Ajthinking\\Tinx\\TinxServiceProvider --force
+php artisan vendor:publish --provider="iml885203\Laravel5Tinx\TinxServiceProvider" --tag="config"
 ```
 
 Once published, edit `config/tinx.php` where appropriate to suit your needs:
@@ -160,7 +160,7 @@ return [
     'strategy' => 'pascal',
     /**
      * Alternatively, you may pass a resolvable fully qualified class name
-     * implementing 'Ajthinking\Tinx\Naming\Strategy'.
+     * implementing 'iml885203\Laravel5Tinx\Naming\Strategy'.
      * */
     // 'strategy' => App\CustomNamingStrategy::class,
 

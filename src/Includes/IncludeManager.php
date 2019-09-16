@@ -1,6 +1,6 @@
 <?php
 
-namespace Ajthinking\Tinx\Includes;
+namespace iml885203\Laravel5Tinx\Includes;
 
 use Illuminate\Support\Str;
 
@@ -16,7 +16,7 @@ class IncludeManager
 
         $contents = view('tinx::includes', compact('names', 'config'))->render();
 
-        $contents = Str::replaceFirst('<php', '<?php', $contents);
+        $contents = preg_replace('/^<php/', '<?php', $contents);
 
         app('tinx.storage')->put('includes.php', $contents);
     }

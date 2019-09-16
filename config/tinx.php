@@ -35,7 +35,7 @@ return [
     'strategy' => 'pascal',
     /**
      * Alternatively, you may pass a resolvable fully qualified class name
-     * implementing 'Ajthinking\Tinx\Naming\Strategy'.
+     * implementing 'iml885203\Laravel5Tinx\Naming\Strategy'.
      * */
     // 'strategy' => App\CustomNamingStrategy::class,
 
@@ -64,5 +64,5 @@ return [
      * or set this value to '-1'.
      * */
     'names_table_limit' => 10,
-    
+
 ];

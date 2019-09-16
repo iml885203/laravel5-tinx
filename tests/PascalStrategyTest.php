@@ -1,9 +1,9 @@
 <?php
 
-namespace Ajthinking\Tinx\Tests;
+namespace iml885203\Laravel5Tinx\Tests;
 
-use Ajthinking\Tinx\Models\Model;
-use Ajthinking\Tinx\Naming\StrategyFactory;
+use iml885203\Laravel5Tinx\Models\Model;
+use iml885203\Laravel5Tinx\Naming\StrategyFactory;
 use PHPUnit\Framework\TestCase;
 
 class PascalStrategyTest extends TestCase
@@ -254,10 +254,10 @@ class PascalStrategyTest extends TestCase
     {
         $segments = [];
         $totalSegments = rand(1, 5);
-        
+
         $words = collect(['Apple', 'Banana', 'Carrot', 'Date', 'Elderberry']);
         $totalWords = count($words);
-        
+
         for ($i = 0; $i < $totalSegments; $i++) {
             $segmentWords = $words->shuffle()->random(rand(1, $totalWords))->toArray();
             $segments[] = array_reduce($segmentWords, function ($carry, $word) {
@@ -285,10 +285,10 @@ class PascalStrategyTest extends TestCase
      * @param array $args
      * @return void
      * */
-    private function dump(...$args)
+    private function dump($args)
     {
         if ($this->debugging) {
-            dump(...$args);
+            dump($args);
         }
     }
 }
