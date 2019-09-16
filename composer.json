@@ -1,11 +1,11 @@
 {
-    "name": "long/tinx",
+    "name": "iml885203/tinx",
     "description": "Reload your Laravel Tinker session from inside Tinker, plus magic shortcuts for first(), find(), where(), and more!",
     "type": "laravel",
     "license": "MIT",
     "authors": [
         {
-            "name": "Long",
+            "name": "iml885203",
             "email": "https://github.com/iml885203"
         },
         {
@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Long\\Tinx\\TinxServiceProvider"
+                "iml885203\\Tinx\\TinxServiceProvider"
             ]
         }
     },
