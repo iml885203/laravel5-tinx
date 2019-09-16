@@ -1,9 +1,13 @@
 {
-    "name": "ajthinking/tinx",
+    "name": "long/tinx",
     "description": "Reload your Laravel Tinker session from inside Tinker, plus magic shortcuts for first(), find(), where(), and more!",
     "type": "laravel",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Long",
+            "email": "https://github.com/iml885203"
+        },
         {
             "name": "Anders Jürisoo",
             "email": "jurisoo@hotmail.com"
@@ -16,18 +20,17 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ajthinking\\Tinx\\TinxServiceProvider"
+                "Long\\Tinx\\TinxServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "Ajthinking\\Tinx\\": "src/"
+            "Long\\Tinx\\": "src/"
         }
     },
     "require": {
-        "laravel/tinker": "~1.0",
-        "illuminate/container": "^5.2|^6.0"
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.4|^7.0"
