@@ -1,5 +1,5 @@
 {
-    "name": "iml885203/tinx",
+    "name": "iml885203/laravel5-tinx",
     "description": "Reload your Laravel Tinker session from inside Tinker, plus magic shortcuts for first(), find(), where(), and more!",
     "type": "laravel",
     "license": "MIT",
