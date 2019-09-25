@@ -59,6 +59,11 @@ class TinxCommand extends Command
     private function rebootConfig()
     {
         app('Illuminate\Foundation\Bootstrap\LoadConfiguration')->bootstrap($this->laravel);
+
+        $routeServiceProvider = $this->laravel->getNamespace() . 'Providers\RouteServiceProvider';
+        if(class_exists($routeServiceProvider)) {
+            app($routeServiceProvider, ['app' => $this->laravel ])->boot($this->laravel->router);
+        }
     }
 
     /**

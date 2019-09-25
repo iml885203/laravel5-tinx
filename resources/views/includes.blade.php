@@ -41,10 +41,13 @@ function restart() {
 /**
  * Renders the "Class/Shortcuts" names table.
  *
- * @param array $args If passed, filters classes to these terms (e.g. "names('banana', 'carrot')").
+ * @param array $args If passed, filters classes to these terms (e.g. "names('banana')", "names(['banana', 'carrot'])").
  * @return void
  * */
 function names($args = []) {
+    if(is_string($args)) {
+        $args = [$args];
+    }
     event('tinx.names', compact('args'));
 }
 
